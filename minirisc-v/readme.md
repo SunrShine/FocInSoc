@@ -5,7 +5,6 @@
 基本指令格式：
     寄存器所处同样位置的指令： R2:[24:20] ; R1[19:15] ; Rd[11:7]
 
-
 ## 整数计算指令
 
 ### 整数寄存器-立即数指令
@@ -61,4 +60,19 @@ LW / LH / LHU /
 
 ## 控制和状态寄存器
 
-### CSR指令
+### CSR指令   CSR：状态寄存器
+
+CSRRW（Atomic Read/Write CSR）
+CSRRS（Atomic Read and Set Bits in CSR）
+CSRRC（Atomic Read and Clear Bits in CSR）
+
+### 定时器和计数器
+用户级只读寄存器。
+
+### 环境调用和断点
+    ECALL 0 PRIV 0 SYSTEM
+    EBREAK 0 PRIV 0 SYSTEM
+ECALL指令用于向支持的运行环境发出一个请求，这个运行环境通常是一个操作系统。
+系统的ABI将定义环境请求的参数是如何传递的，但通常这些参数应当是保存在整数寄存器
+中确定的位置。
+
